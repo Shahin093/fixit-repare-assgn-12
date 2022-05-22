@@ -1,15 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../shared/Loading';
 
 const Login = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
-        // signInWithEmailAndPassword(data.email, data.password);
+        signInWithEmailAndPassword(data.email, data.password);
+        console.log(user);
 
     }
+
+    let signInError;
+
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+
+    }, [user || gUser, from, navigate])
+
+
+    if (gLoading || loading) {
+        return <Loading></Loading>
+    }
+
+    if (gError || error) {
+        signInError = <p className='text-red-500'><small>{gError?.message || error?.message}</small></p>
+    }
+
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -30,7 +63,7 @@ const Login = () => {
                                         message: 'Email is Required'
                                     },
                                     pattern: {
-                                        // value: /[a-z0-9]+@[a-z]+\.[a-z]{2, 3}/,
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                                         message: 'Provide a vilid Email'
                                     }
                                 })}
@@ -65,15 +98,15 @@ const Login = () => {
                             </label>
                         </div>
 
-                        {/* {signInError} */}
+                        {signInError}
 
                         <input className=' btn  w-full max-w-xs' type="submit" value="LOgin" />
                     </form>
                     <p><small>New to loptop services <Link className='text-secondary' to='/signup'>Create New Account</Link></small></p>
 
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">Continue with Google</button>
-                    {/* onClick={() => signInWithGoogle()} */}
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with Google</button>
+
                 </div>
             </div>
         </div>

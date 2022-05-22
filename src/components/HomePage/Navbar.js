@@ -1,7 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    console.log(user);
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
     return (
         <div className="navbar bg-info">
             <div className="navbar-start">
@@ -39,13 +48,14 @@ const Navbar = () => {
                             <li><a>Submenu 2</a></li>
                         </ul>
                     </li>
-                    <li> <Link to="/login">Login</Link></li>
+                    <li> {!user ? <Link to="/login">Login</Link> : <button onClick={logout}>Logout</button>
+                    }</li>
                 </ul>
             </div>
             <div className='navbar-end'>
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="https://api.lorem.space/image/face?hash=33791" />
+                        <img src={!user ? `https://api.lorem.space/image/face?hash=33791` : `${user?.photoURL}`} />
                     </div>
                 </label>
             </div>

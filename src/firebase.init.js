@@ -14,6 +14,15 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APPID,
 };
 
+// const firebaseConfig = {
+//     apiKey: "AIzaSyC-FsoqYpUHXE6KP5bGehNNOqE0JNh4pjU",
+//     authDomain: "fixit-repair-assign-12.firebaseapp.com",
+//     projectId: "fixit-repair-assign-12",
+//     storageBucket: "fixit-repair-assign-12.appspot.com",
+//     messagingSenderId: "190811720889",
+//     appId: "1:190811720889:web:7bccadbc4a2346a9d29f68"
+// };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

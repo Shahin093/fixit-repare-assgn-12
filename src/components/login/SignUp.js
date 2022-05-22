@@ -1,16 +1,42 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Loading from '../shared/Loading';
 const SignUp = () => {
+    const navigate = useNavigate();
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [updateProfile, updating, uError] = useUpdateProfile(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = async data => {
         console.log(data);
-        // await createUserWithEmailAndPassword(data.email, data.password);
-        // await updateProfile({ displayName: data.name });
-        // console.log('update done');
-        // navigate('/appointment');
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        console.log('update done');
+        navigate('/home');
 
+    }
+    if (user) {
+        navigate('/home');
+
+    }
+    let signInError;
+    if (gLoading || loading || updating) {
+        return <Loading></Loading>
+    }
+
+
+
+    if (gError || error || uError) {
+        signInError = <p className='text-red-500'><small>{gError?.message || error?.message}</small></p>
     }
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -86,15 +112,15 @@ const SignUp = () => {
                             </label>
                         </div>
 
-                        {/* {signInError} */}
+                        {signInError}
 
                         <input className=' btn  w-full max-w-xs' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already have an account<Link className='text-secondary' to='/login'>Please Login</Link></small></p>
 
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline">Continue with Google</button>
-                    {/* //onClick={() => signInWithGoogle()}  */}
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with Google</button>
+
                 </div>
             </div>
         </div>
