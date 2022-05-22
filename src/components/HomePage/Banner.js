@@ -2,31 +2,37 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='mb-32'>
-            <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://html.modernwebtemplates.com/fixit/images/slide03.jpg" /> /
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <div>
-                            <h2 className='text-base-100 text-4xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, a?</h2>
-                            <p className='text-base-100  text-center'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem maiores molestiae est at perspiciatis dolores dicta accusamus debitis quod? Ducimus consequatur iure excepturi, quidem reiciendis commodi impedit ipsum hic voluptatibus.</p>
-                        </div>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
+        <div class="carousel w-full my-16">
+            <div id="slide1" class="carousel-item relative w-full">
+                <img src="https://html.modernwebtemplates.com/fixit/images/slide03.jpg" class="w-full" /> /
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide4" class="btn btn-circle">❮</a>
+                    <div className='text-center'>
+                        <h2>THis is best Fisure.</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse unde </p>
                     </div>
+                    <a href="#slide2" class="btn btn-circle">❯</a>
                 </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img src="https://html.modernwebtemplates.com/fixit/images/slide01.jpg
-" className="w-full" /> /
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <div>
-                            <h2 className='text-base-100 text-4xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, a?</h2>
-                            <p className='text-base-100 text-center'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem maiores molestiae est at perspiciatis dolores dicta accusamus debitis quod? Ducimus consequatur iure excepturi, quidem reiciendis commodi impedit ipsum hic voluptatibus.</p>
-                        </div>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
+            </div>
+            <div id="slide2" class="carousel-item relative w-full">
+                <img src="https://api.lorem.space/image/car?w=800&h=200&hash=500B67FB" class="w-full" /> /
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide1" class="btn btn-circle">❮</a>
+                    <a href="#slide3" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+            <div id="slide3" class="carousel-item relative w-full">
+                <img src="https://api.lorem.space/image/car?w=800&h=200&hash=A89D0DE6" class="w-full" /> /
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide2" class="btn btn-circle">❮</a>
+                    <a href="#slide4" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+            <div id="slide4" class="carousel-item relative w-full">
+                <img src="https://api.lorem.space/image/car?w=800&h=200&hash=225E6693" class="w-full" /> /
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide3" class="btn btn-circle">❮</a>
+                    <a href="#slide1" class="btn btn-circle">❯</a>
                 </div>
             </div>
         </div>
