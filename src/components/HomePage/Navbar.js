@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-info">
+        <div className="navbar bg-info mb-20">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">
                     <img src='https://html.modernwebtemplates.com/fixit/images/logo.png' alt="" />
