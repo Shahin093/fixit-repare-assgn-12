@@ -10,8 +10,8 @@ const BusinessSumary = () => {
                 <div class="">
                     <h1 class="mb-5 text-5xl font-bold">Our Statistics</h1>
                     <p class="mb-5">We’re experienced and award winning repair company. We’ve successfully fixed thousands of computer device over the last couple of years with our customer satisfaction.</p>
-                    <div className='stats stats-vertical lg:stats-horizontal shadow m-3'>
-                        <div class="stat m-3">
+                    <div className='stats stats-vertical lg:stats-horizontal shadow mt-5'>
+                        <div class="stat m-5">
                             <div class="stat-value">275</div>
                             <div class="stat-desc text-3xl font-bold m-3">Current <span className='text-orange-500'>Fixings</span></div>
                         </div>
