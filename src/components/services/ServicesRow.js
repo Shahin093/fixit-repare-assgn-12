@@ -12,7 +12,7 @@ const ServicesRow = ({ service }) => {
                 <div className="card-body">
                     <h4 className='card-title'>{name}</h4>
                     <p className='card-text text-secondary'>{description}</p>
-                    <Link to={`/inventory/${_id}`} className='btn btn-outline-success'>Update</Link>
+                    <Link to={`/servicePurchase/${_id}`} className='btn btn-outline-success'>Order Now</Link>
                 </div>
             </div>
         </div>
