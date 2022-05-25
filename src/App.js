@@ -12,6 +12,9 @@ import MyOrders from './components/dashboard/MyOrders';
 import User from './components/dashboard/User';
 import MyProfile from './components/dashboard/MyProfile';
 import RequiredAuth from './components/login/RequriedAuth';
+import ManageProduct from './components/dashboard/ManageProduct';
+import AddProduct from './components/dashboard/AddProduct';
+import ManageAllOrder from './components/dashboard/ManageAllOrder';
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
@@ -33,8 +36,17 @@ function App() {
           }>
 
           <Route index element={<MyProfile></MyProfile>}></Route>
+
           <Route path='/dashboard/order' element={<MyOrders></MyOrders>}></Route>
+
           <Route path='users' element={<User></User>}></Route>
+
+          <Route path='/dashboard/manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+
+          <Route path='/dashboard/addProduct' element={<AddProduct></AddProduct>}></Route>
+
+          <Route path='/dashboard/manageAllOrder' element={<ManageAllOrder></ManageAllOrder>}></Route>
+
           {/* <Route path='review' element={<Review></Review>}></Route>  */}
         </Route>
 
