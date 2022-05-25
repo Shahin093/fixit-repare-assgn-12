@@ -15,6 +15,7 @@ import RequiredAuth from './components/login/RequriedAuth';
 import ManageProduct from './components/dashboard/ManageProduct';
 import AddProduct from './components/dashboard/AddProduct';
 import ManageAllOrder from './components/dashboard/ManageAllOrder';
+import Payment from './components/dashboard/Payment';
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
@@ -38,7 +39,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
 
           <Route path='/dashboard/order' element={<MyOrders></MyOrders>}></Route>
-
+          <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<User></User>}></Route>
 
           <Route path='/dashboard/manageProduct' element={<ManageProduct></ManageProduct>}></Route>
