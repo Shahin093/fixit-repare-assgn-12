@@ -1,16 +1,13 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const ServicePurchase = () => {
+    const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
-
-
-    // const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-    //     fetch(`https://murmuring-sea-88663.herokuapp.com/available?date=${formattedDate}`)
-    //         .then(res => res.json())
-    // );
-
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
         fetch(`http://localhost:5000/servicePurchase/${id}`, {
             method: "GET",
@@ -19,18 +16,99 @@ const ServicePurchase = () => {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
         }
-            // body: JSON.stringify(booking))
 
         )
-            .then(res => res.json()))
-    console.log(service);
+            .then(res => res.json()));
+    console.log(service)
+
+
+    const quantity = (parseInt(service?.available_quantity));
+    console.log(quantity);
+
+    const handlePurchase = event => {
+        event.preventDefault();
+        const booking = {
+            bookingMan: user?.email,
+            customerName: user?.displayName,
+            phone: event.target.phone.value,
+            quantity: event.target.quantity.value,
+            available_quantity: service?.available_quantity,
+            minimum_quantity: service?.minimum_quantity,
+            serviceName: service?.name,
+            price: service?.price,
+            image: service?.image,
+            description: service?.description
+
+        };
+        fetch('http://localhost:5000/purchase', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data) {
+                    alert('Succuss purchase');
+                } else {
+                    alert(`Already have and service`)
+                }
+                refetch();
+                event.target.reset();
+            })
+
+        const quan = parseInt(event.target.quantity.value);
+        const available_quantity = quantity - quan;
+        fetch(`http://localhost:5000/tools/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ available_quantity })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success ', data);
+                // alert('user added successfully ');
+                // 
+            })
+        // console.log(booking);
+    }
+    let sas = ``;
+    const onCheck = event => {
+        // event.preventDefault();
+        const demo = event.target.value
+        // console.log(parseInt(demo))
+        if (parseInt(demo) < parseInt(service?.minimum_quantity)) {
+            return sas = `Please quantity is invilid`;
+        }
+
+    }
     return (
         <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content text-center">
-                <div class="max-w-md">
-                    <h1 class="text-5xl font-bold">Hello there {id} </h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button class="btn btn-primary">Purchase</button>
+            <div class="hero-content flex-col lg:flex-row">
+                <img src="https://fundsnetservices.com/wp-content/uploads/purchase-credit-journal-entry.jpg" />
+                <div>
+
+
+                    <form onSubmit={handlePurchase} action="" className='grid w-full grid-cols-1 gap-3 justify-items-center mt-4'>
+                        <input required type="text" value={service?.name} className="input input-bordered input-success w-full max-w-xs" />
+                        <input required type="text" name='name' value={user?.displayName || ''} className="input input-bordered input-success w-full max-w-xs" />
+                        <input required type="text" name='email' value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
+                        <input required type="text" name='phone' placeholder='phone ' className="input input-bordered w-full max-w-xs" />
+
+
+
+                        <input onChange={onCheck} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
+
+                        <input type="submit" className="btn btn-secondary input input-bordered w-full max-w-xs" />
+
+
+                    </form>
+
+
                 </div>
             </div>
         </div>

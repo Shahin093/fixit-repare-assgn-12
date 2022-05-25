@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Motherboard",
+        "image": "http://themelooks.net/demo/cosolu/wordpress/wp-content/uploads/2017/10/gallery-item-07.jpg",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
+        "minimum_quantity": 150,
+        "available_quantity": "500",
+        "price": "1499"
+    },
+    {
+        "name": "Hard Disk",
+        "image": "http://themelooks.net/demo/cosolu/wordpress/wp-content/uploads/2017/10/gallery-item-01.jpg",
+        "description": "Quick Fix be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
+        "minimum_quantity": 150,
+        "available_quantity": "600",
+        "price": "1200"
+    },
+    {
+        "name": "Notebooks ",
+        "image": "http://themelooks.net/demo/cosolu/wordpress/wp-content/uploads/2017/10/gallery-item-05.jpg",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
+        "minimum_quantity": 150,
+        "available_quantity": "400",
+        "price": "1000"
+    },
+    {
+        "name": "Ram",
+        "image": "https://templates.bwlthemes.com/fixer_buddies/images/service_4.jpg",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
+        "minimum_quantity": 150,
+        "available_quantity": "800",
+        "price": "1200"
+    },
+    {
+        "name": "Motherboard",
+        "image": "https://santhemes.com/tidytheme/refib-wp/wp-content/uploads/2017/07/blog1.jpg",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
+        "minimum_quantity": 150,
+        "available_quantity": "500",
+        "price": "1499"
+    },
+    {
+        "name": "Motherboard",
+        "image": "http://themelooks.net/demo/cosolu/wordpress/wp-content/uploads/2017/10/gallery-item-07.jpg",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
+        "minimum_quantity": 150,
+        "available_quantity": "500",
+        "price": "1499"
+    }
+]
