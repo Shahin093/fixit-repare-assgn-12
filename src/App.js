@@ -16,6 +16,8 @@ import ManageProduct from './components/dashboard/ManageProduct';
 import AddProduct from './components/dashboard/AddProduct';
 import ManageAllOrder from './components/dashboard/ManageAllOrder';
 import Payment from './components/dashboard/Payment';
+import AddRating from './components/dashboard/AddRating';
+import Reviews from './components/HomePage/Reviews';
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
@@ -24,6 +26,7 @@ function App() {
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/home' element={<Home></Home>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
+        <Route path='/review' element={<Reviews></Reviews>} ></Route>
         <Route path='/signup' element={<SignUp></SignUp>} ></Route>
         <Route path='/servicePurchase/:id' element={
           <RequiredAuth>
@@ -39,6 +42,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
 
           <Route path='/dashboard/order' element={<MyOrders></MyOrders>}></Route>
+          <Route path='/dashboard/review' element={<AddRating></AddRating>}></Route>
           <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<User></User>}></Route>
 

@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({ service }) => {
-    const { price, bookingMan, customerName } = service;
-    console.log(service);
+    const { price, bookingMan, customerName, _id } = service;
+
+    console.log('id : : ', _id);
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -73,7 +74,25 @@ const CheckoutForm = ({ service }) => {
             setCardError('');
             setTransactionId(paymentIntent.id)
             console.log(paymentIntent);
-            setSuccess('Contreats ! Your Payment is Completed.')
+            setSuccess('Contreats ! Your Payment is Completed.');
+
+            fetch(`http://localhost:5000/purchase/${_id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('success ', data);
+                    console.log('data order purchase update .');
+                    // alert('user added successfully ');
+                    // 
+                })
+
+
+
+
         }
 
     }

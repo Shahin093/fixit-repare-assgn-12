@@ -56,9 +56,16 @@ const MyOrders = () => {
                                 <td>{apoint.serviceName}</td>
                                 <td>{apoint.quantity}</td>
                                 <td>$ {apoint.price}</td>
-                                <td><button className='btn bg-red-300'>Delete</button></td>
                                 <td>
-                                    {(apoint.price && !apoint.paid) && <Link to={`/dashboard/payment/${apoint._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {
+                                        apoint.paid &&
+                                        <button className='btn bg-red-300'>Delete</button>
+                                    }
+                                    </td>
+                                <td>
+                                    {
+
+                                        (apoint.price && !apoint.paid) && <Link to={`/dashboard/payment/${apoint._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
 
                                     {(apoint.price && apoint.paid) && <span className='text-success'><button className='btn btn-xs btn-success'>Paid</button></span>}
                                 </td>

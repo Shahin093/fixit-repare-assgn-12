@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const ServicePurchase = () => {
+    const [check, setCheck] = useState(0);
+    console.log(check);
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
@@ -76,16 +78,6 @@ const ServicePurchase = () => {
             })
         // console.log(booking);
     }
-    let sas = ``;
-    const onCheck = event => {
-        // event.preventDefault();
-        const demo = event.target.value
-        // console.log(parseInt(demo))
-        if (parseInt(demo) < parseInt(service?.minimum_quantity)) {
-            return sas = `Please quantity is invilid`;
-        }
-
-    }
     return (
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row">
@@ -101,9 +93,14 @@ const ServicePurchase = () => {
 
 
 
-                        <input onChange={onCheck} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
-
-                        <input type="submit" className="btn btn-secondary input input-bordered w-full max-w-xs" />
+                        <input onChange={(event) => setCheck(event.target.value)} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
+                        {
+                            check < service?.minimum_quantity && <p>Less than the minimum quantity</p>
+                        }
+                        {
+                            check > service?.available_quantity && <p> less Than Available Quantity. </p>
+                        }
+                        <input type="submit" disabled={check < service?.minimum_quantity || check > service?.available_quantity} className="btn btn-secondary input input-bordered w-full max-w-xs" />
 
 
                     </form>
