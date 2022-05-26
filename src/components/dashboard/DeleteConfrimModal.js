@@ -4,7 +4,7 @@ const DeleteConfrimModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
     const { name, _id } = deleteProduct;
     console.log("em : ", deleteProduct)
     const handleDelete = () => {
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://whispering-everglades-47983.herokuapp.com/product/${_id}`, {
             method: 'DELETE',
 
             headers: {

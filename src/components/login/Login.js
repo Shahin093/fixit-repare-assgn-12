@@ -47,9 +47,11 @@ const Login = () => {
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="text-2xl font-bold text-center">Login</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="card-body flex h-screen justify-center items-center">
+                    <img src="https://html.modernwebtemplates.com/fixit/images/logo.png" alt="" />
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-80">
+
+                        <h2 className="text-2xl font-bold text-center">Login</h2>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>

@@ -3,10 +3,9 @@ import { useQuery } from 'react-query';
 import ReactStars from 'react-rating-stars-component';
 import Loading from '../shared/Loading';
 const Reviews = () => {
-    const [rating, setRating] = useState(0);
-    console.log(rating);
+
     const { data: reviews, isLoading, refetch } = useQuery('review', () =>
-        fetch(`http://localhost:5000/review`, {
+        fetch(`https://whispering-everglades-47983.herokuapp.com/review`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -15,7 +14,7 @@ const Reviews = () => {
         }
         )
             .then(res => res.json()));
-    console.log(reviews);
+    // console.log(reviews);
     if (isLoading) {
         return <Loading></Loading>
     }

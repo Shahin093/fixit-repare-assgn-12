@@ -2,15 +2,15 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-
+import Loading from '../shared/Loading';
 const AddProduct = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = async data => {
         console.log(data);
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://whispering-everglades-47983.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -29,6 +29,10 @@ const AddProduct = () => {
                 }
             })
 
+    }
+
+    if (loading) {
+        return <Loading></Loading>
     }
 
 
@@ -105,7 +109,7 @@ const AddProduct = () => {
                                     placeholder='Available Quantity'
                                     type="number"
                                     class="input input-bordered w-full max-w-xs"
-                                    {...register("Available_Quantity", {
+                                    {...register("available_quantity", {
                                         required: {
                                             value: true,
                                             message: 'Email is Required'
@@ -118,16 +122,16 @@ const AddProduct = () => {
                                 />
 
                                 <label class="label">
-                                    {errors.number?.type === 'required' && <span class="label-text-alt text-red-500">{errors.Available_Quantity.message}</span>}
-                                    {errors.number?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.Available_Quantity.message}</span>}
+                                    {errors.available_quantity?.type === 'required' && <span class="label-text-alt text-red-500">{errors.available_quantity.message}</span>}
+                                    {errors.available_quantity?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.available_quantity.message}</span>}
                                 </label>
                             </div>
                             <div class="form-control w-full max-w-xs">
                                 <input
-                                    placeholder='minimum Quantity'
+                                    placeholder='minimum quantity'
                                     type="number"
                                     class="input input-bordered w-full max-w-xs"
-                                    {...register("minimum_Quantity", {
+                                    {...register("minimum_quantity", {
                                         required: {
                                             value: true,
                                             message: 'Email is Required'
@@ -140,8 +144,8 @@ const AddProduct = () => {
                                 />
 
                                 <label class="label">
-                                    {errors.minimum_Quantity?.type === 'required' && <span class="label-text-alt text-red-500">{errors.minimum_Quantity.message}</span>}
-                                    {errors.minimum_Quantity?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.minimum_Quantity.message}</span>}
+                                    {errors.minimum_quantity?.type === 'required' && <span class="label-text-alt text-red-500">{errors.minimum_quantity.message}</span>}
+                                    {errors.minimum_quantity?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.minimum_quantity.message}</span>}
                                 </label>
                             </div>
                             <div class="form-control w-full max-w-xs">

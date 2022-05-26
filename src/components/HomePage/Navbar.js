@@ -17,7 +17,6 @@ const Navbar = () => {
     const menuItems =
         <>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/reviews'>Reviews</Link></li>
             <li><Link to='/contact'>Contact</Link></li>
             <li><Link to='/about'>About</Link></li>
             <li><Link to='/review'>Review</Link></li>
@@ -46,7 +45,8 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Fixit Repaier</a>
+                {/* <a className="btn btn-ghost normal-case text-xl">Fixit Repaier</a> */}
+                <Link to='/home'><img src="https://html.modernwebtemplates.com/fixit/images/logo.png" alt="" /></Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

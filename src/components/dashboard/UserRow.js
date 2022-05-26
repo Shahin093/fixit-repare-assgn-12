@@ -5,7 +5,7 @@ const UserRow = ({ user, refetch, index }) => {
     console.log('role : ', email);
 
     const makeUser = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://whispering-everglades-47983.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

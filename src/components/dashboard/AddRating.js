@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import ReactStars from 'react-rating-stars-component';
 import { Rating } from 'react-simple-star-rating';
 import auth from '../../firebase.init';
+import Loading from '../shared/Loading';
 
 
 const color = {
@@ -15,7 +16,7 @@ const color = {
 const AddRating = () => {
     const [value, setValue] = useState([]) // initial rating value
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const thirdExample = {
         size: 40,
         count: 5,
@@ -36,7 +37,7 @@ const AddRating = () => {
         const reviewData = { ...data, rating: value };
         console.log(reviewData);
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://whispering-everglades-47983.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -55,15 +56,21 @@ const AddRating = () => {
                 }
             })
     }
+    if (loading) {
+        return <Loading></Loading>
+    }
+
     return (
 
         <div class="hero  bg-base-200">
             <div class="hero-content flex-col lg:flex-col-reverse">
 
-                <div class="card  w-80 max-w-sm shadow-2xl bg-base-500">
+                <div class="card   max-w-sm shadow-2xl bg-base-500">
 
-                    <div class="card-body">
-                        <h2 className='card-title'>Add a Review</h2>
+                    <div class="card-body w-80">
+                        <div>
+                            <h2 className='text-2xl text-center'>Add a Review</h2>
+                        </div>
                         <form onSubmit={handleSubmit(handleReview)}>
 
                             <div class="form-control w-full max-w-xs">
@@ -126,7 +133,9 @@ const AddRating = () => {
                                     {errors.description?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.description.message}</span>}
                                 </label>
                             </div>
-                            <div>
+                            <p>Please Rating :</p>
+                            <div className='flex justify-center items-center '>
+
                                 <ReactStars {...thirdExample} />
                             </div>
                             {/* {signInError} */}

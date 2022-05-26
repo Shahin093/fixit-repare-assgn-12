@@ -7,11 +7,12 @@ import auth from '../../firebase.init';
 
 const ServicePurchase = () => {
     const [check, setCheck] = useState(0);
-    console.log(check);
+    console.log(parseInt(check) + 5);
+    const ch = parseInt(check);
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
-        fetch(`http://localhost:5000/servicePurchase/${id}`, {
+        fetch(`https://whispering-everglades-47983.herokuapp.com/servicePurchase/${id}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -22,10 +23,13 @@ const ServicePurchase = () => {
         )
             .then(res => res.json()));
     console.log(service)
+    const minimum_Quan = parseInt(service?.minimum_quantity);
+    const available_quan = parseInt(service?.available_quantity);
+    console.log(minimum_Quan, available_quan);
 
 
     const quantity = (parseInt(service?.available_quantity));
-    console.log(quantity);
+    // console.log(quantity);
 
     const handlePurchase = event => {
         event.preventDefault();
@@ -42,7 +46,7 @@ const ServicePurchase = () => {
             description: service?.description
 
         };
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://whispering-everglades-47983.herokuapp.com/purchase', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +55,7 @@ const ServicePurchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data) {
                     alert('Succuss purchase');
                 } else {
@@ -63,7 +67,7 @@ const ServicePurchase = () => {
 
         const quan = parseInt(event.target.quantity.value);
         const available_quantity = quantity - quan;
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`https://whispering-everglades-47983.herokuapp.com/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -72,7 +76,7 @@ const ServicePurchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success ', data);
+                // console.log('success ', data);
                 // alert('user added successfully ');
                 // 
             })
@@ -95,12 +99,12 @@ const ServicePurchase = () => {
 
                         <input onChange={(event) => setCheck(event.target.value)} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
                         {
-                            check < service?.minimum_quantity && <p>Less than the minimum quantity</p>
+                            ch < minimum_Quan && <p className='text-xl text-red-500'>Less than the minimum quantity-{service?.minimum_quantity}</p>
                         }
                         {
-                            check > service?.available_quantity && <p> less Than Available Quantity. </p>
+                            ch > available_quan && <p className='text-xl text-red-500'> less Than Available Quantity-{service?.available_quantity} </p>
                         }
-                        <input type="submit" disabled={check < service?.minimum_quantity || check > service?.available_quantity} className="btn btn-secondary input input-bordered w-full max-w-xs" />
+                        <input type="submit" disabled={ch < service?.minimum_quantity || ch > service?.available_quantity} className="btn btn-secondary input input-bordered w-full max-w-xs" />
 
 
                     </form>

@@ -8,6 +8,7 @@ const OrderRow = ({ index, apoint, setDeleteOrder }) => {
                 <td>{apoint.serviceName}</td>
                 <td>{apoint.quantity}</td>
                 <td>$ {apoint.price}</td>
+                <td>$ {apoint.price * apoint.quantity}</td>
                 <td>
                     {
 
