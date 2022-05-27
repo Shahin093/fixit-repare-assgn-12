@@ -18,6 +18,9 @@ import ManageAllOrder from './components/dashboard/ManageAllOrder';
 import Payment from './components/dashboard/Payment';
 import AddRating from './components/dashboard/AddRating';
 import Reviews from './components/HomePage/Reviews';
+import NotFound from './components/HomePage/NotFound';
+import Blogs from './components/HomePage/Blogs';
+import MyProtpolio from './components/HomePage/MyProtpolio';
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
@@ -26,6 +29,8 @@ function App() {
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/home' element={<Home></Home>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
+        <Route path='/protpolio' element={<MyProtpolio></MyProtpolio>} ></Route>
+        <Route path='/blog' element={<Blogs></Blogs>} ></Route>
         <Route path='/review' element={
           <RequiredAuth>
             <Reviews></Reviews>
@@ -57,6 +62,8 @@ function App() {
 
           {/* <Route path='review' element={<Review></Review>}></Route>  */}
         </Route>
+
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
       <Footer></Footer>
