@@ -3,7 +3,7 @@ import React from 'react';
 const Facilities = () => {
     return (
 
-        <div className='mt-20'>
+        <div className='mt-24 mb-20'>
             <div className='text-center'>
                 <h1>YOUR PERFECT WAY</h1>
                 <h1 style={{ color: '#570df8' }} className='text-5xl font-bold '>Why Choose Our Facilities</h1>

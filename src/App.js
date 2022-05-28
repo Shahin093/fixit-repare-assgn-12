@@ -27,9 +27,9 @@ function App() {
     <div className="max-w-7xl mx-auto px-12">
       <Navbar></Navbar>
       <Routes>
-        <Route path='/' element={<RequiredAuth>
+        <Route path='/' element={
           <Home></Home>
-        </RequiredAuth>} ></Route>
+        } ></Route>
         <Route path='/home' element={<Home></Home>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
         <Route path='/protpolio' element={<MyProtpolio></MyProtpolio>} ></Route>

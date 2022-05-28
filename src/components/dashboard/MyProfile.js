@@ -18,30 +18,30 @@ const MyProfile = () => {
 
 
         // send to your database 
-        fetch('https://boiling-ravine-29801.herokuapp.com/userUpdate', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
-                    alert(' Update successfully')
-                    reset();
-                }
-                else {
-                    alert('Failed to Update ');
-                }
-            })
+        // fetch('https://boiling-ravine-29801.herokuapp.com/userUpdate', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+        //     .then(res => res.json())
+        //     .then(inserted => {
+        //         if (inserted.insertedId) {
+        //             alert(' Update successfully')
+        //             reset();
+        //         }
+        //         else {
+        //             alert('Failed to Update ');
+        //         }
+        //     })
 
     }
 
 
     return (
         <div className='w-96 mx-auto'>
-            <h1 className='text-center font-bold text-2xl'>Update Your Profile</h1>
+            <h1 className=' font-bold text-2xl mt-5'>Update Your Profile</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="form-control w-full max-w-xs">
@@ -121,7 +121,7 @@ const MyProfile = () => {
                 </div>
 
 
-                <input className='btn btn-primary w-full max-w-xs text-white capitalize' type="submit" value="Update Profile" />
+                <input className='btn btn-primary w-full max-w-xs text-white capitalize' type="submit" value="Create Profile" />
             </form>
 
         </div>

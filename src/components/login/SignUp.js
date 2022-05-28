@@ -42,13 +42,13 @@ const SignUp = () => {
         signInError = <p className='text-red-500'><small>{gError?.message || error?.message}</small></p>
     }
     return (
-        <div className='flex h-screen justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="text-2xl font-bold">Sign Up</h2>
+        <div className='flex  justify-center items-center'>
+            <div className=" w-96 bg-base-100 shadow-xl">
+                <div className="card-body h-auto">
+                    <h2 className="text-2xl text-center font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center items-center">
 
-                        <div className='w-80'>
+                        <div className='w-80 '>
                             <div class="form-control w-full max-w-xs">
                                 <label class="label">
                                     <span class="label-text">Name</span>
@@ -122,10 +122,10 @@ const SignUp = () => {
                             <input className=' btn  w-full max-w-xs' type="submit" value="Sign Up" />
                         </div>
                     </form>
-                    <p><small>Already have an account<Link className='text-secondary' to='/login'>Please Login</Link></small></p>
+                    <p className='text-2xl text-center'><small>Already have an account<Link className='text-secondary ' to='/login'> Please Login</Link></small></p>
 
                     <div className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with Google</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline ">Continue with Google</button>
 
                 </div>
             </div>

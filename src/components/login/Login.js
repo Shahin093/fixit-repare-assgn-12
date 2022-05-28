@@ -45,13 +45,13 @@ const Login = () => {
     }
 
     return (
-        <div className='flex h-screen justify-center items-center'>
-            <div className="card w-62 bg-base-100 shadow-xl">
+        <div className='mb-5 h-auto flex h-screen justify-center items-center'>
+            <div className=" w-62 bg-base-100 ">
                 <div className="card-body flex h-screen justify-center items-center">
                     <img src="https://html.modernwebtemplates.com/fixit/images/logo.png" alt="" />
-                    <form onSubmit={handleSubmit(onSubmit)} className="w-72">
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-96 p-5">
 
-                        <h2 className="text-2xl font-bold text-center">Login</h2>
+                        <h2 className="text-2xl mb-2 font-bold text-center">Login</h2>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -103,9 +103,9 @@ const Login = () => {
 
                         {signInError}
 
-                        <input className=' btn  w-full max-w-xs' type="submit" value="LOgin" />
+                        <input className=' btn  w-full max-w-xs' type="submit" value="Login" />
                     </form>
-                    <p><small>New to loptop services <Link className='text-secondary' to='/signup'>Create New Account</Link></small></p>
+                    <p className='text-center mt-0'><small>New to loptop services <Link className='text-secondary' to='/signup'>Create New Account</Link></small></p>
 
                     <div className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with Google</button>
