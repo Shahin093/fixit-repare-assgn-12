@@ -6,10 +6,11 @@ import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
     const [deleteProduct, setDeleteProduct] = useState(null);
+
     const { data: product, isLoading, refetch } = useQuery('product', () => fetch('https://whispering-everglades-47983.herokuapp.com/product', {
         method: 'GET',
         headers: {
-            'content-type': 'application/json',
+            // 'content-type': 'application/json',
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));

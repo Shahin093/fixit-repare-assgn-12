@@ -3,7 +3,24 @@ body {
 }
 
 .card {
-    /* width: 20rem; */
+    height: 35rem;
+}
+
+.card-protfolio {
+    height: 20rem;
+    margin-bottom: 20px;
+}
+
+.card-Facilities {
+    height: 10rem;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}
+
+.card-sumary {
+    height: 8rem;
+    margin-bottom: 20px;
 }
 
 .card:hover {

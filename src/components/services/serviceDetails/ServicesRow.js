@@ -5,7 +5,7 @@ const ServicesRow = ({ service }) => {
 
     const { image, _id, name, description } = service;
     return (
-        <div className='col-lg-4'>
+        <div className='col-lg-4 mb-5'>
             <div className=' card text-center'>
                 <div className="overflow">
                     <img className='card-img-top' src={image} alt="" />

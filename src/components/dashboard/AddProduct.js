@@ -112,7 +112,7 @@ const AddProduct = () => {
                                     {...register("available_quantity", {
                                         required: {
                                             value: true,
-                                            message: 'Email is Required'
+                                            message: 'available quantity is Required'
                                         },
                                         pattern: {
                                             value: { min: 0, max: 10000 },
@@ -134,7 +134,7 @@ const AddProduct = () => {
                                     {...register("minimum_quantity", {
                                         required: {
                                             value: true,
-                                            message: 'Email is Required'
+                                            message: 'Minimum quantity is Required'
                                         },
                                         pattern: {
                                             value: { min: 0, max: 10000 },

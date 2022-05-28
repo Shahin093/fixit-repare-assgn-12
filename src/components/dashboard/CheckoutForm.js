@@ -23,7 +23,7 @@ const CheckoutForm = ({ service }) => {
 
         }).then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data?.clientSecret) {
                     setClinetSecret(data.clientSecret);
                 }
@@ -85,8 +85,6 @@ const CheckoutForm = ({ service }) => {
                 .then(res => res.json())
                 .then(data => {
                     console.log('success ', data);
-                    console.log('data order purchase update .');
-                    // alert('user added successfully ');
                     // 
                 })
 

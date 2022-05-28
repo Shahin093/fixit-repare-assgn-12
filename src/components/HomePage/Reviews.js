@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import ReactStars from 'react-rating-stars-component';
 import Loading from '../shared/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 const Reviews = () => {
+    const [user, loading, error] = useAuthState(auth);
 
     const { data: reviews, isLoading, refetch } = useQuery('review', () =>
         fetch(`https://whispering-everglades-47983.herokuapp.com/review`, {
@@ -14,10 +17,15 @@ const Reviews = () => {
         }
         )
             .then(res => res.json()));
-    // console.log(reviews);
     if (isLoading) {
+
         return <Loading></Loading>
+
     }
+
+
+    // console.log(reviews);
+
 
     const thirdExample = {
         // size: 40,
@@ -31,7 +39,6 @@ const Reviews = () => {
     };
     return (
         <div>
-            <h2>reviews</h2>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     <thead>

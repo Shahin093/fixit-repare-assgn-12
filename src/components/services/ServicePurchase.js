@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
-
+import Loading from '../shared/Loading'
 const ServicePurchase = () => {
     const [check, setCheck] = useState(0);
-    console.log(parseInt(check) + 5);
-    const ch = parseInt(check);
+    // console.log(check);
+    const ch = parseInt(0 + check);
+    console.log(ch)
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
@@ -22,10 +22,14 @@ const ServicePurchase = () => {
 
         )
             .then(res => res.json()));
+
+    if (loading || isLoading) {
+        return <Loading></Loading>
+    }
     console.log(service)
     const minimum_Quan = parseInt(service?.minimum_quantity);
     const available_quan = parseInt(service?.available_quantity);
-    console.log(minimum_Quan, available_quan);
+    console.log(minimum_Quan, available_quan + 15);
 
 
     const quantity = (parseInt(service?.available_quantity));
@@ -97,7 +101,7 @@ const ServicePurchase = () => {
 
 
 
-                        <input onChange={(event) => setCheck(event.target.value)} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
+                        <input required onChange={(event) => setCheck(event.target.value)} placeholder={service?.minimum_quantity} type="number" name='quantity' className="input input-bordered w-full max-w-xs" />
                         {
                             ch < minimum_Quan && <p className='text-xl text-red-500'>Less than the minimum quantity-{service?.minimum_quantity}</p>
                         }

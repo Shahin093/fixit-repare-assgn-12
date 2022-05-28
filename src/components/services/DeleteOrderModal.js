@@ -18,7 +18,7 @@ const DeleteOrderModal = ({ deleteOrder, setDeleteOrder }) => {
                 console.log(data);
                 if (data.deletedCount > 0) {
                     alert(`Fixit: ${serviceName} is deleted`);
-                    // setDeleteOrder(null)
+                    setDeleteOrder(null)
                     // refetch();
                 }
             })

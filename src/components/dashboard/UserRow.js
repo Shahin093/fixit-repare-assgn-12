@@ -2,7 +2,6 @@ import React from 'react';
 
 const UserRow = ({ user, refetch, index }) => {
     const { email, role } = user;
-    console.log('role : ', email);
 
     const makeUser = () => {
         fetch(`https://whispering-everglades-47983.herokuapp.com/user/admin/${email}`, {
