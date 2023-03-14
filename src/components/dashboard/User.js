@@ -4,7 +4,7 @@ import Loading from '../shared/Loading';
 import UserRow from './UserRow';
 
 const User = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://whispering-everglades-47983.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://fixit-fsa6.onrender.com/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

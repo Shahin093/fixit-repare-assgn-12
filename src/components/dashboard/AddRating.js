@@ -37,7 +37,7 @@ const AddRating = () => {
         const reviewData = { ...data, rating: value };
         console.log(reviewData);
 
-        fetch('https://whispering-everglades-47983.herokuapp.com/review', {
+        fetch('https://fixit-fsa6.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

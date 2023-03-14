@@ -10,7 +10,7 @@ const AddProduct = () => {
     const onSubmit = async data => {
         console.log(data);
 
-        fetch('https://whispering-everglades-47983.herokuapp.com/product', {
+        fetch('https://fixit-fsa6.onrender.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -8,7 +8,7 @@ const Reviews = () => {
     const [user, loading, error] = useAuthState(auth);
 
     const { data: reviews, isLoading, refetch } = useQuery('review', () =>
-        fetch(`https://whispering-everglades-47983.herokuapp.com/review`, {
+        fetch(`https://fixit-fsa6.onrender.com/review`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

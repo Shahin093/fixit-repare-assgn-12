@@ -7,7 +7,7 @@ import ProductRow from './ProductRow';
 const ManageProduct = () => {
     const [deleteProduct, setDeleteProduct] = useState(null);
 
-    const { data: product, isLoading, refetch } = useQuery('product', () => fetch('https://whispering-everglades-47983.herokuapp.com/product', {
+    const { data: product, isLoading, refetch } = useQuery('product', () => fetch('https://fixit-fsa6.onrender.com/product', {
         method: 'GET',
         headers: {
             // 'content-type': 'application/json',

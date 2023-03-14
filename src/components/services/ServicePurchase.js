@@ -12,7 +12,7 @@ const ServicePurchase = () => {
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
-        fetch(`https://whispering-everglades-47983.herokuapp.com/servicePurchase/${id}`, {
+        fetch(`https://fixit-fsa6.onrender.com/servicePurchase/${id}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -50,7 +50,7 @@ const ServicePurchase = () => {
             description: service?.description
 
         };
-        fetch('https://whispering-everglades-47983.herokuapp.com/purchase', {
+        fetch('https://fixit-fsa6.onrender.com/purchase', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const ServicePurchase = () => {
 
         const quan = parseInt(event.target.quantity.value);
         const available_quantity = quantity - quan;
-        fetch(`https://whispering-everglades-47983.herokuapp.com/tools/${id}`, {
+        fetch(`https://fixit-fsa6.onrender.com/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

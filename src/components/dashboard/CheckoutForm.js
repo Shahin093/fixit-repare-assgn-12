@@ -13,7 +13,7 @@ const CheckoutForm = ({ service }) => {
     const [clientSecret, setClinetSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://whispering-everglades-47983.herokuapp.com/create-payment-intent', {
+        fetch('https://fixit-fsa6.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -76,7 +76,7 @@ const CheckoutForm = ({ service }) => {
             console.log(paymentIntent);
             setSuccess('Contreats ! Your Payment is Completed.');
 
-            fetch(`https://whispering-everglades-47983.herokuapp.com/purchase/${_id}`, {
+            fetch(`https://fixit-fsa6.onrender.com/purchase/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

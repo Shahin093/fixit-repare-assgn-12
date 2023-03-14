@@ -5,7 +5,7 @@ const DeleteOrderModal = ({ deleteOrder, setDeleteOrder }) => {
     console.log('price is : ', serviceName, _id)
 
     const handleDelete = () => {
-        fetch(`https://whispering-everglades-47983.herokuapp.com/order/${_id}`, {
+        fetch(`https://fixit-fsa6.onrender.com/order/${_id}`, {
             method: 'DELETE',
 
             headers: {

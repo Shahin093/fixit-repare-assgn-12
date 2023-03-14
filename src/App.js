@@ -22,6 +22,10 @@ import Reviews from './components/HomePage/Reviews';
 import NotFound from './components/HomePage/NotFound';
 import Blogs from './components/HomePage/Blogs';
 import MyProtpolio from './components/HomePage/MyProtpolio';
+
+
+// https://fixit-fsa6.onrender.com/
+
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
