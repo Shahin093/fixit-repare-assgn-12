@@ -12,7 +12,7 @@ const Payment = () => {
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['services', id], () =>
-        fetch(`https://fixit-fsa6.onrender.com/booking/${id}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/booking/${id}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

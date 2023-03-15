@@ -4,9 +4,13 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 // import ServicesRow from './ServicesRow';
 
 const Services = () => {
+
+
+
+
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('https://fixit-fsa6.onrender.com/tools')
+        fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/tools')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])

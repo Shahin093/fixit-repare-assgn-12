@@ -37,7 +37,7 @@ const AddRating = () => {
         const reviewData = { ...data, rating: value };
         console.log(reviewData);
 
-        fetch('https://fixit-fsa6.onrender.com/review', {
+        fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

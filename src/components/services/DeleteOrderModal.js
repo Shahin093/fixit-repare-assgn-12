@@ -5,7 +5,7 @@ const DeleteOrderModal = ({ deleteOrder, setDeleteOrder }) => {
     console.log('price is : ', serviceName, _id)
 
     const handleDelete = () => {
-        fetch(`https://fixit-fsa6.onrender.com/order/${_id}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/order/${_id}`, {
             method: 'DELETE',
 
             headers: {

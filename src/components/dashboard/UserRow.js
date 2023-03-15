@@ -4,7 +4,7 @@ const UserRow = ({ user, refetch, index }) => {
     const { email, role } = user;
 
     const makeUser = () => {
-        fetch(`https://fixit-fsa6.onrender.com/user/admin/${email}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

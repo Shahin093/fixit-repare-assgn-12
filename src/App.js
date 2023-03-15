@@ -22,13 +22,16 @@ import Reviews from './components/HomePage/Reviews';
 import NotFound from './components/HomePage/NotFound';
 import Blogs from './components/HomePage/Blogs';
 import MyProtpolio from './components/HomePage/MyProtpolio';
+import MyProfilesShow from './components/dashboard/MyProfileShow/MyProfilesShow';
+import SittingPage from './components/dashboard/SittingPage/SittingPage';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 
-// https://fixit-fsa6.onrender.com/
+// https://fixit-repare-server-assgn-12-production.up.railway.app/
 
 function App() {
   return (
-    <div className="max-w-7xl mx-auto px-12">
+    <div className="max-w-7xl mx-auto lg:px-12">
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={
@@ -38,6 +41,7 @@ function App() {
         <Route path='/login' element={<Login></Login>} ></Route>
         <Route path='/protpolio' element={<MyProtpolio></MyProtpolio>} ></Route>
         <Route path='/blog' element={<Blogs></Blogs>} ></Route>
+        <Route path='/myprofileEdit' element={<MyProfile></MyProfile>} ></Route>
         <Route path='/review' element={
 
           <RequiredAuth>
@@ -57,9 +61,10 @@ function App() {
               <DashBoard></DashBoard>
             </RequiredAuth>
           }>
-          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route index element={<MyProfilesShow></MyProfilesShow>}></Route>
           <Route path='/dashboard/order' element={<MyOrders></MyOrders>}></Route>
           <Route path='/dashboard/review' element={<AddRating></AddRating>}></Route>
+          <Route path='/dashboard/sitting' element={<SittingPage></SittingPage>}></Route>
           <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
           <Route path='/dashboard/users' element={
             <RequiredAdmin>
@@ -88,7 +93,7 @@ function App() {
           {/* <Route path='review' element={<Review></Review>}></Route>  */}
         </Route>
 
-        <Route path='*' element={<NotFound></NotFound>}></Route>
+        <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
 
       </Routes>
       <Footer></Footer>

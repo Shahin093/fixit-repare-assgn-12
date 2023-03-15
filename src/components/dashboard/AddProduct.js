@@ -10,7 +10,7 @@ const AddProduct = () => {
     const onSubmit = async data => {
         console.log(data);
 
-        fetch('https://fixit-fsa6.onrender.com/product', {
+        fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

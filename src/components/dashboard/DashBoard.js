@@ -45,7 +45,7 @@ const DashBoard = () => {
 
                         </>}
 
-
+                    <li><Link to='/dashboard/sitting'>Sitting</Link></li>
                 </ul>
             </div>
         </div>

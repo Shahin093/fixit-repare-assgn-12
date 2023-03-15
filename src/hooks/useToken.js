@@ -7,7 +7,7 @@ const useToken = user => {
         const email = user?.user?.email;
         const currentUser = { email: email };
         if (email) {
-            fetch(`https://fixit-fsa6.onrender.com/user/${email}`, {
+            fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

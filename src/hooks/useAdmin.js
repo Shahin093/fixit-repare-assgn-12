@@ -7,7 +7,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`https://fixit-fsa6.onrender.com/admin/${email}`, {
+            fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

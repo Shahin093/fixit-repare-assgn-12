@@ -4,7 +4,7 @@ const DeleteConfrimModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
     const { name, _id } = deleteProduct;
     console.log("em : ", deleteProduct)
     const handleDelete = () => {
-        fetch(`https://fixit-fsa6.onrender.com/product/${_id}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/product/${_id}`, {
             method: 'DELETE',
 
             headers: {

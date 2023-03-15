@@ -4,7 +4,7 @@ import Loading from '../shared/Loading';
 import UserRow from './UserRow';
 
 const User = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://fixit-fsa6.onrender.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

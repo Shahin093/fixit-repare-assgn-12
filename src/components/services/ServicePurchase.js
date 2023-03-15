@@ -12,7 +12,7 @@ const ServicePurchase = () => {
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
     const { data: service, isLoading, refetch } = useQuery(['service', id], () =>
-        fetch(`https://fixit-fsa6.onrender.com/servicePurchase/${id}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/servicePurchase/${id}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
@@ -50,7 +50,7 @@ const ServicePurchase = () => {
             description: service?.description
 
         };
-        fetch('https://fixit-fsa6.onrender.com/purchase', {
+        fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/purchase', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const ServicePurchase = () => {
 
         const quan = parseInt(event.target.quantity.value);
         const available_quantity = quantity - quan;
-        fetch(`https://fixit-fsa6.onrender.com/tools/${id}`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

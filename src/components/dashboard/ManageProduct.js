@@ -7,7 +7,7 @@ import ProductRow from './ProductRow';
 const ManageProduct = () => {
     const [deleteProduct, setDeleteProduct] = useState(null);
 
-    const { data: product, isLoading, refetch } = useQuery('product', () => fetch('https://fixit-fsa6.onrender.com/product', {
+    const { data: product, isLoading, refetch } = useQuery('product', () => fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/product', {
         method: 'GET',
         headers: {
             // 'content-type': 'application/json',

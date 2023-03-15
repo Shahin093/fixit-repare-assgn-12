@@ -13,7 +13,7 @@ const CheckoutForm = ({ service }) => {
     const [clientSecret, setClinetSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://fixit-fsa6.onrender.com/create-payment-intent', {
+        fetch('https://fixit-repare-server-assgn-12-production.up.railway.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -76,7 +76,7 @@ const CheckoutForm = ({ service }) => {
             console.log(paymentIntent);
             setSuccess('Contreats ! Your Payment is Completed.');
 
-            fetch(`https://fixit-fsa6.onrender.com/purchase/${_id}`, {
+            fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/purchase/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

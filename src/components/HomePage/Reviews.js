@@ -8,7 +8,7 @@ const Reviews = () => {
     const [user, loading, error] = useAuthState(auth);
 
     const { data: reviews, isLoading, refetch } = useQuery('review', () =>
-        fetch(`https://fixit-fsa6.onrender.com/review`, {
+        fetch(`https://fixit-repare-server-assgn-12-production.up.railway.app/review`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',
