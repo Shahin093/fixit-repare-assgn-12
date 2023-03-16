@@ -17,7 +17,7 @@ const ServicesRow = ({ service }) => {
         //         </div>
         //     </div>
         // </div>
-        <div className='col-lg-4 mb-5'>
+        <div className='col-lg-4 mb-5 mx-auto'>
             <div class="container">
                 <div class="card">
                     <div class="imgBx">

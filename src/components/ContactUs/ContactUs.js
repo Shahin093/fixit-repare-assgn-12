@@ -2,7 +2,7 @@ import React from 'react';
 import './ContactUs.css';
 const ContactUs = () => {
     return (
-        <div className='mt-12'>
+        <div className='my-16'>
             <div class="containers">
                 <div class="content">
                     <div class="left-side">
