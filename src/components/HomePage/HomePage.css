@@ -29,3 +29,33 @@
 .button-87:active {
     transform: scale(0.95);
 }
+
+
+.child {
+    align-self: flex-end;
+    /* width: 100px;
+    height: 100px;
+    background: #FFB6C1; */
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+}
+
+.bounce:hover {
+    animation-name: bounce;
+    animation-timing-function: ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../shared/Loading';
+import './Navbar.css';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -41,7 +42,7 @@ const Navbar = () => {
                     <label tabindex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 navMenu">
                         {menuItems}
                     </ul>
                 </div>
@@ -49,14 +50,21 @@ const Navbar = () => {
                 <Link to='/home'><img src="https://html.modernwebtemplates.com/fixit/images/logo.png" alt="" /></Link>
             </div>
             <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 navMenu">
                     {menuItems}
                 </ul>
             </div>
             <div className="navbar-end">
-                <label tabindex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                {/* <label tabindex="1" for="dashboard-sidebar" className="btn btn-ghost ">
+                    <div class="avatar">
+                        <div class="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt='' />
+                        </div>
+                    </div>
+                </label> */}
+                {/* 
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
+                 */}
             </div>
         </div>
 

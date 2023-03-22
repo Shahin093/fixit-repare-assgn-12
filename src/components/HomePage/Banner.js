@@ -68,7 +68,7 @@ const Banner = () => {
                 }}>
                     <Carousel
                         data={data}
-                        time={3000}
+                        time={2000}
                         width="1150px"
                         height="500px"
                         captionStyle={captionStyle}

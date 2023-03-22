@@ -7,7 +7,7 @@ const HomeService = () => {
             <div className=" hero-content flex-col lg:flex-row-reverse">
                 <div className='flex-1 lg:none hidden lg:block'>
                     <AnimationOnScroll animateIn="animate__fadeInLeftBig">
-                        <img className="mt-[-80px] " src="http://iamubaidah.com/html/solvit/assets/images/home-service-img.png" alt='' />
+                        <img className="mt-[-80px]  child bounce" src="http://iamubaidah.com/html/solvit/assets/images/home-service-img.png" alt='' />
                     </AnimationOnScroll>
 
 
@@ -17,7 +17,7 @@ const HomeService = () => {
                         <h1 className="text-4xl text-white py-5 mb-5">Book An Appointment For Home Service</h1>
                     </AnimationOnScroll>
 
-                    <p className="py-6 text-white">We Offer Affordable Repair Services Of All Computer, Mobile, And Other Electronics To Client At Your Home Or Office.We Offer Affordable Repair Services Of All Computer, Mobile, And Other Electronics To Client At Your Home Or Office</p>
+                    <p className="py-6 text-white child bounce">We Offer Affordable Repair Services Of All Computer, Mobile, And Other Electronics To Client At Your Home Or Office.We Offer Affordable Repair Services Of All Computer, Mobile, And Other Electronics To Client At Your Home Or Office</p>
                     <button className="button-87" role="button">Get Started</button>
                 </div>
             </div>
