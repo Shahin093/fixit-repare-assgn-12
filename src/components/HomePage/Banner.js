@@ -68,12 +68,12 @@ const Banner = () => {
                 }}>
                     <Carousel
                         data={data}
-                        time={2000}
+                        time={3000}
                         width="1150px"
                         height="500px"
                         captionStyle={captionStyle}
                         radius="10px"
-                        slideNumber={true}
+                        // slideNumber={true}
                         slideNumberStyle={slideNumberStyle}
                         captionPosition="bottom"
                         automatic={true}
@@ -82,7 +82,7 @@ const Banner = () => {
                         pauseIconSize="40px"
                         slideBackgroundColor="darkgrey"
                         slideImageFit="cover"
-                        thumbnails={true}
+                        // thumbnails={true}
                         thumbnailWidth="100px"
                         style={{
                             textAlign: "center",

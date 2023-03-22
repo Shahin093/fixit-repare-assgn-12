@@ -19,7 +19,6 @@ import ManageAllOrder from './components/dashboard/ManageAllOrder';
 import Payment from './components/dashboard/Payment';
 import AddRating from './components/dashboard/AddRating';
 import Reviews from './components/HomePage/Reviews';
-import NotFound from './components/HomePage/NotFound';
 import Blogs from './components/HomePage/Blogs';
 import MyProtpolio from './components/HomePage/MyProtpolio';
 import MyProfilesShow from './components/dashboard/MyProfileShow/MyProfilesShow';
