@@ -1,12 +1,32 @@
 import React from 'react';
 import { Carousel } from 'react-carousel-minimal';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { useEffect } from 'react';
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
+const boxVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, scale: 0 }
+};
 
 // sourse animation link : : https://www.metinarslanturk.com/react-animation-on-scroll/
 
 
 const Banner = () => {
+
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            control.start("visible");
+        } else {
+            control.start("hidden");
+        }
+    }, [control, inView]);
+
+
     const data = [
         {
             image: "https://html.modernwebtemplates.com/fixit/images/slide03.jpg",
@@ -57,133 +77,57 @@ const Banner = () => {
 
 
     return (
-        <div>
-            {/* <AnimationOnScroll animateIn="animate__fadeInLeftBig"> */}
 
-            <div style={{ textAlign: "center" }}>
-                {/* <h2>React Carousel Minimal</h2>
+        <motion.div
+            className="box"
+            ref={ref}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control}
+        >
+            <div>
+                {/* <AnimationOnScroll animateIn="animate__fadeInLeftBig"> */}
+
+                <div style={{ textAlign: "center" }}>
+                    {/* <h2>React Carousel Minimal</h2>
                 <p>Easy to use, responsive and customizable carousel component for React Projects.</p> */}
-                <div style={{
-                    padding: "0 20px"
-                }}>
-                    <Carousel
-                        data={data}
-                        time={2000}
-                        width="1150px"
-                        height="500px"
-                        captionStyle={captionStyle}
-                        radius="10px"
-                        // slideNumber={true}
-                        slideNumberStyle={slideNumberStyle}
-                        captionPosition="bottom"
-                        automatic={true}
-                        dots={true}
-                        pauseIconColor="white"
-                        pauseIconSize="40px"
-                        slideBackgroundColor="darkgrey"
-                        slideImageFit="cover"
-                        // thumbnails={true}
-                        thumbnailWidth="100px"
-                        style={{
-                            textAlign: "center",
-                            maxWidth: "1150px",
-                            maxHeight: "500px",
-                            margin: "40px auto",
-                        }}
-                    />
+                    <div style={{
+                        padding: "0 20px"
+                    }}>
+                        <Carousel
+                            data={data}
+                            time={2000}
+                            width="1150px"
+                            height="500px"
+                            captionStyle={captionStyle}
+                            radius="10px"
+                            // slideNumber={true}
+                            slideNumberStyle={slideNumberStyle}
+                            captionPosition="bottom"
+                            automatic={true}
+                            dots={true}
+                            pauseIconColor="white"
+                            pauseIconSize="40px"
+                            slideBackgroundColor="darkgrey"
+                            slideImageFit="cover"
+                            // thumbnails={true}
+                            thumbnailWidth="100px"
+                            style={{
+                                textAlign: "center",
+                                maxWidth: "1150px",
+                                maxHeight: "500px",
+                                margin: "40px auto",
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
+        </motion.div>
 
 
 
-            {/*    <div class="carousel w-full my-16">
 
 
-                <div id="slide1" class="carousel-item relative w-full">
-                    <img src="" class="w-full" /> /
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" class="btn btn-circle">❮</a>
-                        <div className='text-center'>
-                            <h2>THis is best Fisure.</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse unde </p>
-                        </div>
-                        <a href="#slide2" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide2" class="carousel-item relative w-full">
-                    <img src="" class="w-full" /> /
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" class="btn btn-circle">❮</a>
-                        <a href="#slide3" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" class="carousel-item relative w-full">
-                    <img src="" class="w-full" /> /
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" class="btn btn-circle">❮</a>
-                        <a href="#slide4" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide4" class="carousel-item relative w-full">
-                    <img src="" class="w-full" /> /
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" class="btn btn-circle">❮</a>
-                        <a href="#slide1" class="btn btn-circle">❯</a>
-                    </div>
-                </div>
-
-                <div>
-
-                </div>
-
-
-            </div > */}
-
-            {/* </AnimationOnScroll> */}
-        </div>
-
-        // <div class="carousel w-full my-16">
-
-
-        //     <div id="slide1" class="carousel-item relative w-full">
-        //         <img src="https://html.modernwebtemplates.com/fixit/images/slide03.jpg" class="w-full" /> /
-        //         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        //             <a href="#slide4" class="btn btn-circle">❮</a>
-        //             <div className='text-center'>
-        //                 <h2>THis is best Fisure.</h2>
-        //                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse unde </p>
-        //             </div>
-        //             <a href="#slide2" class="btn btn-circle">❯</a>
-        //         </div>
-        //     </div>
-        //     <div id="slide2" class="carousel-item relative w-full">
-        //         <img src="https://html.modernwebtemplates.com/fixit/images/slide03.jpg" class="w-full" /> /
-        //         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        //             <a href="#slide1" class="btn btn-circle">❮</a>
-        //             <a href="#slide3" class="btn btn-circle">❯</a>
-        //         </div>
-        //     </div>
-        //     <div id="slide3" class="carousel-item relative w-full">
-        //         <img src="https://wp.bwlthemes.com/restore_wp/wp-content/uploads/2016/11/home_1_slider_1-e1527970919620.jpg" class="w-full" /> /
-        //         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        //             <a href="#slide2" class="btn btn-circle">❮</a>
-        //             <a href="#slide4" class="btn btn-circle">❯</a>
-        //         </div>
-        //     </div>
-        //     <div id="slide4" class="carousel-item relative w-full">
-        //         <img src="https://wp.bwlthemes.com/restore_wp/wp-content/uploads/2016/11/home_1_slider_2-e1527970968543.jpg" class="w-full" /> /
-        //         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        //             <a href="#slide3" class="btn btn-circle">❮</a>
-        //             <a href="#slide1" class="btn btn-circle">❯</a>
-        //         </div>
-        //     </div>
-
-        //     <div>
-
-        //     </div>
-
-
-        // </div >
     );
 };
 
